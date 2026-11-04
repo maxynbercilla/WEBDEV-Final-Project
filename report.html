@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Report - Citizen Reporting</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="report.html" class="active">Submit Report</a>
+    <a href="track.html">Track Report</a>
+  </nav>
+
+  <!-- Main Form Content -->
+  <main class="container">
+    <h2>Submit an Incident Report</h2>
+    <form id="reportForm">
+      
+      <!-- Incident Category -->
+      <label for="category">Incident Category:</label>
+      <select id="category" name="category" required>
+        <option value="">-- Select Category --</option>
+        <option value="infrastructure">Infrastructure Damage</option>
+        <option value="safety">Public Safety Concern</option>
+        <option value="sanitation">Waste & Sanitation</option>
+        <option value="traffic">Traffic & Road Hazard</option>
+      </select>
+
+      <!-- Incident Description -->
+      <label for="description">Incident Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe the incident in detail..." required></textarea>
+
+      <!-- Date & Time of Incident -->
+      <label for="datetime">Date and Time of Incident:</label>
+      <input type="datetime-local" id="datetime" name="datetime" required>
+
+      <!-- Location Input -->
+      <label for="location">Location Input:</label>
+      <input type="text" id="location" name="location" placeholder="Enter street address or landmark" required>
+
+      <!-- Photo / File Upload -->
+      <label for="evidence">Photo/File Upload:</label>
+      <input type="file" id="evidence" name="evidence" accept="image/*,.pdf">
+
+      <!-- Submit Button -->
+      <button type="submit">Submit Report</button>
+
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Citizen Reporting Website. All rights reserved.</p>
+  </footer>
+
+  <!-- Submission Alert / Modal Script -->
+  <script>
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Generate a mock tracking reference number
+      const refNum = 'CR-' + Math.floor(100000 + Math.random() * 900000);
+      
+      // Confirmation Alert
+      alert('Report Submitted Successfully!\n\nYour Reference Number is: ' + refNum + '\n\nPlease save this number to track your report status.');
+      
+      // Reset form fields
+      this.reset();
+    });
+  </script>
+</body>
+</html>
