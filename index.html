@@ -1,243 +1,587 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f7f2">
-    <meta name="description" content="A community space to check suspicious links and messages before they spread." >
-    <title>Suri | Scam ba 'to?</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhattan | Better Waiting Areas</title>
 
-    <!-- Bootstrap supplies the responsive layout and common interface styles. -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- A display font paired with a readable body font gives the page its own voice. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet" href="styles/hero.css">
-    <link rel="stylesheet" href="styles/report-lookup.css">
-    <link rel="stylesheet" href="styles/scams.css">
-    <link rel="stylesheet" href="styles/how-it-works.css">
-    <link rel="stylesheet" href="styles/volunteer.css">
-    <link rel="stylesheet" href="styles/agencies.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <script src="scripts/hero.js" defer></script>
-    <script src="scripts/menu.js" defer></script>
-    <script src="scripts/report-lookup.js" defer></script>
-    <script src="scripts/volunteer.js" defer></script>
-  </head>
-  <body>
-    <!-- A sticky header keeps the main actions close while the page is in view. -->
-    <header class="navbar navbar-expand-md sticky-top bg-light px-3 px-lg-5">
-      <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="#home" aria-label="Suri home">
-        <span class="brand-mark" aria-hidden="true">s</span>
-        <span class="brand-name fs-4 fw-bold">suri<span class="brand-period">.</span></span>
-      </a>
 
-      <button class="navbar-toggler" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
-        <span class="navbar-toggler-icon" aria-hidden="true"></span>
-      </button>
+    <style>
+        :root {
+            --blue: #245477;
+            --dark-blue: #183b56;
+            --light-blue: #eef4f9;
+            --text: #253443;
+            --muted: #617181;
+            --white: #ffffff;
+        }
 
-      <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
-        <div class="navbar-nav align-items-md-center gap-md-5">
-          <a class="nav-link active" href="#home" aria-current="page">Home</a>
-          <a class="nav-link" href="#how-it-works">About</a>
-          <a class="nav-link" href="#volunteer">Volunteer</a>
-          <a class="btn btn-outline-dark ms-md-2" href="report.html">Report <span aria-hidden="true">↗</span></a>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--light-blue);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            min-height: 72px;
+            box-shadow: 0 2px 10px rgba(20, 50, 75, .07);
+        }
+
+        .navbar-brand {
+            color: var(--blue);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .brand-dot {
+            color: #e36b55;
+        }
+
+        .navbar .nav-link {
+            color: #34495b;
+            font-weight: 500;
+            margin-left: 14px;
+        }
+
+            .navbar .nav-link:hover {
+                color: var(--blue);
+            }
+
+        .nav-report, .primary-btn {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            padding: 11px 22px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 1px solid var(--blue);
+            transition: .2s;
+        }
+
+            .nav-report:hover, .primary-btn:hover {
+                background: var(--dark-blue);
+                color: white;
+            }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 75px;
+            background: #f0f5fa;
+        }
+
+            .hero h1 {
+                color: var(--blue);
+                font-size: clamp(2rem, 4vw, 3.2rem);
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                color: var(--muted);
+                max-width: 760px;
+                margin: 0 auto 25px;
+                line-height: 1.7;
+            }
+
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            color: var(--blue);
+            font-size: 1.65rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .how-card, .report-card, .stat-card {
+            background: white;
+            border: 1px solid #d9e2ea;
+            border-radius: 6px;
+            height: 100%;
+        }
+
+        .how-card {
+            padding: 22px;
+            min-height: 125px;
+        }
+
+        .step-number {
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-card h3, .report-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .how-card p, .report-card p {
+            font-size: .88rem;
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .recent-section {
+            background: #f8fafc;
+        }
+
+        .report-card {
+            padding: 10px;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+            .report-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(30, 60, 90, .09);
+            }
+
+        .report-photo {
+            height: 125px;
+            background: #e2e8ee;
+            color: #7a8792;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: .85rem;
+        }
+
+        .report-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .report-card .small-info {
+            font-size: .76rem;
+            margin-bottom: 4px;
+        }
+
+        .status {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .impact-section {
+            background: #eaf1f7;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 22px 12px;
+        }
+
+            .stat-card h3 {
+                color: var(--blue);
+                font-size: 1.7rem;
+                font-weight: 700;
+                margin-bottom: 3px;
+            }
+
+            .stat-card p {
+                color: var(--muted);
+                font-size: .85rem;
+                margin: 0;
+            }
+
+        .faq-section {
+            background: white;
+        }
+
+        .accordion-item {
+            border: 1px solid #dce4eb;
+            margin-bottom: 9px;
+            border-radius: 5px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--text);
+            background: #fff;
+        }
+
+            .accordion-button:not(.collapsed) {
+                color: var(--blue);
+                background: #f0f5fa;
+                box-shadow: none;
+            }
+
+            .accordion-button:focus {
+                box-shadow: none;
+                border-color: #b8cbd9;
+            }
+
+        .contact-section {
+            background: #f0f5fa;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+            .contact-section p {
+                color: var(--muted);
+                font-size: .9rem;
+            }
+
+        footer {
+            background: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 22px 15px;
+            font-size: .85rem;
+        }
+
+        .lookup-box {
+            max-width: 570px;
+            margin: 35px auto 0;
+            padding: 22px;
+            background: white;
+            border: 1px solid #d9e2ea;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+            .lookup-box label {
+                font-weight: 600;
+                font-size: .9rem;
+                margin-bottom: 8px;
+            }
+
+            .lookup-box input {
+                min-height: 45px;
+            }
+
+        #lookup-feedback {
+            margin-top: 12px;
+            font-size: .9rem;
+        }
+
+        @media (max-width: 767px) {
+            .navbar .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .nav-report {
+                display: inline-block;
+                margin-top: 8px;
+            }
+
+            .hero {
+                padding: 65px 18px;
+            }
+
+            .section {
+                padding: 48px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                Citizen Reporting
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#site-navigation"
+                    aria-controls="site-navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="site-navigation">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track.html">Track Report</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-report" href="report.html">Report an Issue</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <div class="container">
+            <h1>Safer Waiting Areas Start With You</h1>
+            <p>
+                Report damaged waiting sheds, broken lights, missing signs,
+                and other facility problems in your community.
+                Your report can help make public transportation waiting areas safer and better.
+            </p>
+            <a href="report.html" class="primary-btn">
+                Report an Issue
+            </a>
+        </div>
+
+        <!-- REPORT TRACKING FUNCTION -->
+        <div class="lookup-box">
+            <h5 class="fw-bold mb-2">Already submitted a report?</h5>
+            <p class="text-secondary small mb-3">
+                Enter your reference number to check your report status.
+            </p>
+
+            <form id="lookup-form">
+                <label for="reference-number">Reference Number</label>
+                <input type="text" id="reference-number" class="form-control"
+                       placeholder="e.g. MAN-2026-001" required>
+                <button type="submit" class="primary-btn w-100 mt-3">
+                    Check Report Status →
+                </button>
+            </form>
+
+            <div id="lookup-feedback" aria-live="polite"></div>
+            <a href="track.html" class="small d-inline-block mt-2">
+                Go to report tracking page →
+            </a>
+        </div>
     </header>
 
-    <main>
-      <!-- The hero fills the space below the header and uses a photo selected in scripts/hero.js. -->
-      <section class="hero d-flex align-items-center position-relative overflow-hidden" id="home" aria-labelledby="hero-title">
-        <div class="container position-relative">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-8 hero-content">
-              <p class="hero-eyebrow d-flex align-items-center gap-2 fw-bold mb-3"><span class="eyebrow-dot" aria-hidden="true"></span> Scam ba 'to?</p>
-              <h1 class="hero-title fw-semibold mb-0" id="hero-title">May kahina-hinala?<br><span>Ipa-suri natin.</span></h1>
-              <p class="hero-description lead my-4">A suspicious link or message can reach anyone. Share it with the community and help everyone stay one step ahead.</p>
-              <a class="btn btn-primary d-inline-flex align-items-center gap-4" href="report.html">Report something suspicious <span aria-hidden="true">↗</span></a>
-              <p class="hero-note small mt-4 mb-0"><span aria-hidden="true">✳</span> Check first. Share smarter.</p>
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="how-card">
+                        <div class="step-number">01</div>
+                        <h3>Submit a Report</h3>
+                        <p>Fill out the form with details about the damaged or unsafe waiting area.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="how-card">
+                        <div class="step-number">02</div>
+                        <h3>Review the Report</h3>
+                        <p>The submitted report is checked and reviewed by the responsible team.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="how-card">
+                        <div class="step-number">03</div>
+                        <h3>Track Progress</h3>
+                        <p>Use your reference number to check the status of your submitted report.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-              <aside class="report-lookup" id="report" aria-labelledby="report-lookup-title">
-                <h2 class="report-lookup-title" id="report-lookup-title">Already submitted a report?</h2>
-                <p class="report-lookup-copy">Enter your report number to check its status.</p>
-                <form id="report-lookup-form">
-                  <label class="form-label" for="report-number">Report number</label>
-                  <input class="form-control mb-3" id="report-number" name="report-number" type="text" placeholder="e.g. SR-2026-001" autocomplete="off" required>
-                  <button class="btn btn-primary w-100" type="submit">Check report status <span aria-hidden="true">→</span></button>
-                  <p class="report-lookup-feedback small mt-3 mb-0" id="report-lookup-feedback" role="status" aria-live="polite" hidden></p>
-                </form>
-              </aside>
-            </div>
-          </div>
         </div>
-        <p class="photo-credit position-absolute bottom-0 end-0 small m-3">A little caution goes a long way.</p>
-      </section>
+    </section>
 
-      <!-- Static cards introduce common scam categories without needing JavaScript. -->
-      <section class="scam-types py-5" id="scam-types" aria-labelledby="scam-types-title">
-        <div class="container py-lg-4">
-          <div class="scam-types-heading mb-4 mb-lg-5">
-            <p class="scam-types-kicker text-uppercase fw-bold mb-2">Spot the pattern</p>
-            <h2 class="scam-types-title mb-3" id="scam-types-title">Scams come in different forms.</h2>
-            <p class="scam-types-intro mb-0">Knowing the common tactics can make suspicious messages easier to recognize.</p>
-          </div>
+    <!-- RECENT REPORTS -->
+    <section class="section recent-section" id="recent-reports">
+        <div class="container">
+            <h2 class="section-title">Recent Reports</h2>
 
-          <div class="row g-3 g-lg-4">
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-envelope-exclamation"></i></span>
-                <h3 class="scam-card-title">Phishing</h3>
-                <p class="scam-card-description mb-0">Fake emails and websites imitate trusted organizations to steal passwords, payment details, or personal information.</p>
-              </article>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="report-card">
+                        <div class="report-photo">
+                            <i class="bi bi-image me-2"></i> Photo
+                        </div>
+                        <h3>Damaged Waiting Shed</h3>
+                        <p class="small-info">Location: Sample Bus Stop</p>
+                        <p class="small-info status">Status: Under Review</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="report-card">
+                        <div class="report-photo">
+                            <i class="bi bi-image me-2"></i> Photo
+                        </div>
+                        <h3>Broken Waiting-Area Light</h3>
+                        <p class="small-info">Location: Sample Train Stop</p>
+                        <p class="small-info status">Status: Received</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="report-card">
+                        <div class="report-photo">
+                            <i class="bi bi-image me-2"></i> Photo
+                        </div>
+                        <h3>Missing Bus Stop Sign</h3>
+                        <p class="small-info">Location: Sample Bus Stop</p>
+                        <p class="small-info status">Status: Under Review</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-qr-code"></i></span>
-                <h3 class="scam-card-title">QRishing</h3>
-                <p class="scam-card-description mb-0">A malicious QR code can send you to a fake sign-in or payment page designed to capture your information.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-chat-square-dots"></i></span>
-                <h3 class="scam-card-title">Smishing</h3>
-                <p class="scam-card-description mb-0">Text messages use urgent warnings or rewards to get you to tap a link or share a verification code.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-telephone-inbound"></i></span>
-                <h3 class="scam-card-title">Vishing</h3>
-                <p class="scam-card-description mb-0">A caller impersonates a bank or agency and pressures you to reveal a one-time password or send money.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-bag-x"></i></span>
-                <h3 class="scam-card-title">Fake online shops</h3>
-                <p class="scam-card-description mb-0">Fraudulent listings lure shoppers with unusually low prices, then take payment without delivering the item.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <article class="scam-card h-100">
-                <span class="scam-icon" aria-hidden="true"><i class="bi bi-person-badge"></i></span>
-                <h3 class="scam-card-title">Impersonation</h3>
-                <p class="scam-card-description mb-0">Someone pretends to be a friend, delivery service, or public official to ask for money or private details.</p>
-              </article>
-            </div>
-          </div>
+
+            <p class="text-center text-secondary small mt-3">
+                Sample reports for demonstration purposes only.
+            </p>
         </div>
-      </section>
+    </section>
 
-      <section class="how-it-works py-5" id="how-it-works" aria-labelledby="how-it-works-title">
-        <div class="container py-lg-4">
-          <div class="how-heading mb-5">
-            <p class="how-kicker text-uppercase fw-bold mb-2">From submission to results</p>
-            <h2 class="how-title mb-3" id="how-it-works-title">How it works</h2>
-            <p class="how-intro mb-0">Submit suspicious content, get an AI-assisted analysis, and review the findings.</p>
-          </div>
+    <!-- COMMUNITY IMPACT -->
+    <section class="section impact-section">
+        <div class="container">
+            <h2 class="section-title">Our Community Impact</h2>
 
-          <div class="how-steps row g-4 position-relative">
-            <div class="col-md-4">
-              <article class="how-step">
-                <span class="step-number">01</span>
-                <h3 class="step-title">Submit</h3>
-                <p class="step-description mb-0">Send a suspicious link or text message, or upload a screenshot of what you received.</p>
-              </article>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <h3>120+</h3>
+                        <p>Reports Submitted</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <h3>85+</h3>
+                        <p>Issues Reviewed</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <h3>60+</h3>
+                        <p>Issues Resolved</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-              <article class="how-step">
-                <span class="step-number">02</span>
-                <h3 class="step-title">Analyze</h3>
-                <p class="step-description mb-0">AI examines the submitted text or screenshot and compares it with known and similar reports in the database.</p>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="how-step">
-                <span class="step-number">03</span>
-                <h3 class="step-title">Review</h3>
-                <p class="step-description mb-0">Read the analysis, see relevant matches, and follow the suggested next steps.</p>
-              </article>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <section class="volunteer-section position-relative d-flex align-items-center overflow-hidden" id="volunteer" aria-labelledby="volunteer-title">
-        <div class="volunteer-parallax" aria-hidden="true"></div>
-        <div class="volunteer-shade" aria-hidden="true"></div>
-        <div class="container volunteer-content">
-          <div class="row">
-            <div class="col-lg-8 col-xl-7">
-              <p class="volunteer-eyebrow text-uppercase fw-bold mb-3">Community review</p>
-              <h2 class="volunteer-title mb-3" id="volunteer-title">Some reports need a human verdict.</h2>
-              <p class="volunteer-description mb-4">When AI cannot confidently tell whether a report is a scam, volunteer reviewers examine its evidence. Once reviewers agree, the verdict is published for that report.</p>
-              <button class="btn btn-primary d-inline-flex align-items-center gap-3" id="volunteer-button" type="button">Become a volunteer <span aria-hidden="true">↗</span></button>
-              <p class="volunteer-feedback small mt-3 mb-0" id="volunteer-feedback" role="status" aria-live="polite" hidden></p>
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faqOne">
+                            How do I report a damaged waiting area?
+                        </button>
+                    </h3>
+                    <div id="faqOne" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Click "Report an Issue" and complete the report form.
+                            Provide the location, describe the problem, and attach a photo
+                            if available.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                            What types of problems can I report?
+                        </button>
+                    </h3>
+                    <div id="faqTwo" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can report damaged facilities, poor lighting, missing signs,
+                            accessibility concerns, cleanliness issues, and other safety
+                            or maintenance problems.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#faqThree">
+                            How can I track the status of my report?
+                        </button>
+                    </h3>
+                    <div id="faqThree" class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Use the reference number provided after submitting your report.
+                            Enter it in the tracking section or visit the Track Report page.
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <section class="agency-directory py-5" id="agencies" aria-labelledby="agency-directory-title">
-        <div class="container py-lg-4">
-          <div class="agency-heading mb-4 mb-lg-5">
-            <p class="agency-kicker text-uppercase fw-bold mb-2">Official support</p>
-            <h2 class="agency-title mb-3" id="agency-directory-title">Contact a Philippine cybercrime agency.</h2>
-            <p class="agency-intro mb-0">For formal complaints or assistance, use an agency's official channels and follow its current instructions.</p>
-          </div>
-
-          <div class="row g-3 g-lg-4">
-            <div class="col-md-6 col-xl-3">
-              <article class="agency-card h-100">
-                <span class="agency-icon" aria-hidden="true"><i class="bi bi-building-lock"></i></span>
-                <h3 class="agency-card-title">DICT</h3>
-                <p class="agency-card-description">The Department of Information and Communications Technology leads national ICT and cybersecurity programs. Check its official channels for guidance and advisories.</p>
-                <a class="agency-link" href="https://dict.gov.ph/" target="_blank" rel="noopener noreferrer">Official DICT website <span aria-hidden="true">↗</span></a>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="agency-card h-100">
-                <span class="agency-icon" aria-hidden="true"><i class="bi bi-search"></i></span>
-                <h3 class="agency-card-title">NBI Cybercrime Division</h3>
-                <p class="agency-card-description">The National Bureau of Investigation handles cybercrime investigations and digital evidence. Check its official directory for current procedures.</p>
-                <a class="agency-link" href="https://nbi.gov.ph/overview/divisions/" target="_blank" rel="noopener noreferrer">NBI divisions and services <span aria-hidden="true">↗</span></a>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="agency-card h-100">
-                <span class="agency-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
-                <h3 class="agency-card-title">PNP Anti-Cybercrime Group</h3>
-                <p class="agency-card-description">The PNP ACG investigates cybercrime complaints and provides law-enforcement assistance for online offenses.</p>
-                <a class="agency-link" href="https://acg.pnp.gov.ph/" target="_blank" rel="noopener noreferrer">Official PNP ACG website <span aria-hidden="true">↗</span></a>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="agency-card h-100">
-                <span class="agency-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
-                <h3 class="agency-card-title">CICC</h3>
-                <p class="agency-card-description">The Cybercrime Investigation and Coordinating Center coordinates the government's response to cybercrime and online scams.</p>
-                <a class="agency-link" href="https://cicc.gov.ph/" target="_blank" rel="noopener noreferrer">Official CICC website <span aria-hidden="true">↗</span></a>
-              </article>
-            </div>
-          </div>
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title mb-2">Contact Us</h2>
+            <p>Have a question or need help with a report? Get in touch with us.</p>
+            <p class="mb-1"><i class="bi bi-envelope me-2"></i>citizenreporting@example.com</p>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="site-footer py-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
-        <p class="footer-copyright mb-0">&copy; 2026 Suri</p>
-        <p class="footer-notice mb-0">This is intended for Web Development (WEBDEVT) demo purposes only.</p>
-      </div>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Manhattan. All rights reserved.
     </footer>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Sample report lookup for prototype demonstration.
+        const sampleReports = {
+            "MAN-2026-001": "Under Review",
+            "MAN-2026-002": "Received",
+            "MAN-2026-003": "Resolved"
+        };
+
+        document.getElementById("lookup-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const reference = document.getElementById("reference-number")
+                .value.trim().toUpperCase();
+            const feedback = document.getElementById("lookup-feedback");
+
+            if (sampleReports[reference]) {
+                feedback.innerHTML =
+                    '<div class="alert alert-success mb-0 mt-2">Report found! Status: <strong>' +
+                    sampleReports[reference] + '</strong></div>';
+            } else {
+                feedback.innerHTML =
+                    '<div class="alert alert-warning mb-0 mt-2">Reference number not found. Try MAN-2026-001, MAN-2026-002, or MAN-2026-003.</div>';
+            }
+        });
+    </script>
+
+</body>
 </html>
