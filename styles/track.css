@@ -1,0 +1,342 @@
+/* Manhattan Citizen Reporting - Tracking Page */
+
+:root {
+  --mh-navy: #245477;
+  --mh-navy-dark: #183B56;
+  --mh-text: #18181C;
+  --mh-gray: #6B7280;
+  --mh-background: #F7F8FA;
+  --mh-border: #DADFE5;
+  --mh-white: #FFFFFF;
+}
+
+/* Page background */
+body {
+  background: var(--mh-background);
+  color: var(--mh-text);
+}
+
+/* Tracking page header */
+.track-hero {
+  min-height: 25svh;
+  padding-block: 3rem;
+  background: var(--mh-navy);
+}
+
+.track-eyebrow {
+  color: #D7E7F4;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.track-hero-title,
+.track-report-number,
+.track-progress-title,
+.track-verdict-title {
+  font-family: var(--display-font, "Space Grotesk", sans-serif);
+}
+
+.track-hero-title {
+  color: var(--mh-white);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+.track-hero-copy {
+  color: #E3EDF5;
+  line-height: 1.7;
+}
+
+.track-demo-note {
+  color: var(--mh-gray);
+}
+
+/* Tracking search */
+.track-search {
+  max-width: 720px;
+}
+
+.track-search .form-control,
+.track-search .btn {
+  min-height: 48px;
+  border-radius: 6px;
+}
+
+.track-search .form-control {
+  border: 1px solid var(--mh-border);
+  background: var(--mh-white);
+  color: var(--mh-text);
+}
+
+.track-search .form-control:focus {
+  border-color: var(--mh-navy);
+  box-shadow: 0 0 0 3px rgba(36, 84, 119, 0.12);
+}
+
+.track-search .btn {
+  background: var(--mh-navy);
+  border-color: var(--mh-navy);
+  color: var(--mh-white);
+  font-weight: 600;
+}
+
+.track-search .btn:hover {
+  background: var(--mh-navy-dark);
+  border-color: var(--mh-navy-dark);
+  color: var(--mh-white);
+}
+
+/* Notices */
+.track-notice {
+  max-width: 900px;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--mh-navy);
+  background: #EAF2F8;
+  color: var(--mh-navy-dark);
+}
+
+/* Report summary card */
+.track-report {
+  max-width: 1000px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--mh-border);
+  border-radius: 10px;
+  background: var(--mh-white);
+  box-shadow: 0 6px 24px rgba(24, 59, 86, 0.05);
+}
+
+.track-report-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--mh-border);
+}
+
+.track-category,
+.track-verdict-kicker {
+  color: var(--mh-navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.track-report-number {
+  color: var(--mh-text);
+  overflow-wrap: anywhere;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 700;
+}
+
+/* Status badges */
+.track-status {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  background: #FFF1D6;
+  color: #855A12;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.track-status.is-verdict {
+  background: #E1F2E8;
+  color: #216644;
+}
+
+/* Report details */
+.track-detail-title {
+  margin-bottom: 0.35rem;
+  color: var(--mh-navy);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.track-detail-value {
+  color: var(--mh-text);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.track-message {
+  white-space: pre-wrap;
+}
+
+/* Report progress */
+.track-progress {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--mh-border);
+}
+
+.track-progress-title {
+  margin-bottom: 2rem;
+  color: var(--mh-text);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.track-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track-timeline::before {
+  position: absolute;
+  top: 19px;
+  right: 12.5%;
+  left: 12.5%;
+  height: 2px;
+  background: var(--mh-border);
+  content: "";
+}
+
+.track-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.track-step-marker {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 0.9rem;
+  place-items: center;
+  border: 2px solid var(--mh-border);
+  border-radius: 50%;
+  background: var(--mh-white);
+  color: var(--mh-gray);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.track-step.is-complete .track-step-marker {
+  border-color: var(--mh-navy);
+  background: var(--mh-navy);
+  color: var(--mh-white);
+}
+
+.track-step.is-current .track-step-marker {
+  border-color: var(--mh-navy-dark);
+  background: var(--mh-navy-dark);
+  color: var(--mh-white);
+  box-shadow: 0 0 0 4px #E3EDF5;
+}
+
+.track-step-title {
+  margin-bottom: 0.4rem;
+  color: var(--mh-text);
+  font-family: var(--display-font, "Space Grotesk", sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.track-step-copy {
+  margin: 0 auto;
+  color: var(--mh-gray);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.track-step.is-upcoming .track-step-copy {
+  color: #89919C;
+}
+
+/* Final verdict */
+.track-verdict {
+  padding: 1.5rem;
+  border-left: 4px solid var(--mh-navy);
+  border-radius: 6px;
+  background: #EAF2F8;
+}
+
+.track-verdict-title {
+  color: var(--mh-navy-dark);
+  font-size: 1.5rem;
+}
+
+.track-verdict-copy {
+  color: #374151;
+  line-height: 1.65;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767.98px) {
+  .track-hero {
+    padding-block: 2.5rem;
+  }
+
+  .track-report-header {
+    flex-direction: column;
+  }
+
+  .track-timeline {
+    display: block;
+    padding-left: 0;
+  }
+
+  .track-timeline::before {
+    top: 20px;
+    right: auto;
+    bottom: 20px;
+    left: 19px;
+    width: 2px;
+    height: auto;
+  }
+
+  .track-step {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 1rem;
+    min-height: 104px;
+    text-align: left;
+  }
+
+  .track-step-marker {
+    margin: 0;
+  }
+
+  .track-step-copy {
+    margin: 0;
+  }
+
+  .track-search .btn {
+    width: 100%;
+  }
+}
+
+
+/* Manhattan Citizen Reporting Logo */
+.navbar .brand-mark {
+  background-color: #245477;
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+/* Manhattan Citizen Reporting Brand Name */
+.navbar .brand-name {
+  color: #245477;
+  font-weight: 700;
+}
+
+/* Navigation Links */
+.navbar .nav-link:hover {
+  color: #245477;
+}
+
+/* Report Button Hover */
+.navbar .btn-outline-dark:hover {
+  background-color: #245477;
+  border-color: #245477;
+  color: #ffffff;
+}
