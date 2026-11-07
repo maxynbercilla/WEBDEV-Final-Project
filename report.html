@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#245477">
+    <meta name="description" content="Report public transportation stop and waiting-area issues with Manhattan Citizen Reporting.">
+    <title>Report an Issue | Manhattan Citizen Reporting</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/report.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/report.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar navbar-expand-md sticky-top bg-white px-3 px-lg-5">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="index.html#home" aria-label="Manhattan Citizen Reporting home">
+          <span class="brand-mark" aria-hidden="true"><i class="bi bi-signpost-split-fill"></i></span>
+          <span class="brand-name fs-5 fw-bold">MANHATTAN<span class="brand-period">.</span><small class="d-block brand-subtitle">CITIZEN REPORTING</small></span>
+        </a>
+
+        <button class="navbar-toggler" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+
+        <nav class="collapse navbar-collapse justify-content-md-end" id="site-navigation" aria-label="Main navigation">
+          <div class="navbar-nav align-items-md-center gap-md-4">
+            <a class="nav-link" href="index.html#home">Home</a>
+            <a class="nav-link active" href="report.html" aria-current="page">Report an Issue</a>
+            <a class="nav-link" href="track.html">Track Report</a>
+            <a class="nav-link" href="index.html#contact">Contact Us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="report-hero" aria-labelledby="report-title">
+        <div class="container">
+          <p class="report-eyebrow text-uppercase fw-bold mb-2"><i class="bi bi-megaphone-fill me-2" aria-hidden="true"></i>Make your commute better</p>
+          <h1 class="report-hero-title mb-3" id="report-title">Report a public transport stop issue.</h1>
+          <p class="report-hero-copy mb-4">Seen a damaged waiting shed, missing sign, or poorly lit stop? Tell us what happened and where it happened. Your report can help make everyday journeys safer and more convenient.</p>
+          <div class="hero-note"><i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>Please provide accurate details. Photo evidence is optional but helpful.</div>
+        </div>
+      </section>
+
+      <section class="report-form-section py-5" aria-labelledby="report-form-title">
+        <div class="container">
+          <div class="report-layout">
+            <div class="report-form-intro">
+              <p class="section-kicker text-uppercase fw-bold mb-2">Submit a report</p>
+              <h2 class="report-form-title mb-2" id="report-form-title">Tell us what needs attention.</h2>
+              <p class="text-secondary mb-0">Complete the form below. Fields marked with <span class="required-mark">*</span> are required.</p>
+              <div class="process-card mt-4">
+                <h3><i class="bi bi-clipboard-check me-2" aria-hidden="true"></i>What happens next?</h3>
+                <ol class="process-list">
+                  <li><span>01</span><div><strong>Submit</strong><small>Send the issue details and location.</small></div></li>
+                  <li><span>02</span><div><strong>Review</strong><small>Your report can be checked by the responsible team.</small></div></li>
+                  <li><span>03</span><div><strong>Track</strong><small>Use your reference number to view its status.</small></div></li>
+                </ol>
+              </div>
+            </div>
+
+            <form class="report-form" id="report-form" novalidate>
+              <div class="form-section-heading">
+                <span class="section-icon"><i class="bi bi-person-vcard" aria-hidden="true"></i></span>
+                <div><h3>Reporter information</h3><p>How can we contact you about this report?</p></div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="full-name">Full name <span class="required-mark">*</span></label>
+                  <input class="form-control" id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Enter your full name" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email-address">Email address <span class="required-mark">*</span></label>
+                  <input class="form-control" id="email-address" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+              </div>
+
+              <hr class="form-divider">
+              <div class="form-section-heading">
+                <span class="section-icon"><i class="bi bi-cone-striped" aria-hidden="true"></i></span>
+                <div><h3>Issue details</h3><p>Describe the problem you noticed at the stop or waiting area.</p></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="report-category">Issue category <span class="required-mark">*</span></label>
+                <select class="form-select" id="report-category" name="category" required>
+                  <option value="" selected disabled>Select the issue category</option>
+                  <option value="Damaged facilities / waiting shed">Damaged facilities / waiting shed</option>
+                  <option value="Missing or damaged signs">Missing or damaged signs</option>
+                  <option value="Lighting problems">Lighting problems</option>
+                  <option value="Safety concerns">Safety concerns</option>
+                  <option value="Other issue">Other issue</option>
+                </select>
+                <div class="invalid-feedback">Please select the category that best describes the issue.</div>
+              </div>
+
+              <div class="mb-3 category-detail" id="category-detail-wrap" hidden>
+                <label class="form-label" for="category-detail" id="category-detail-label">Additional details</label>
+                <input class="form-control" id="category-detail" name="category-detail" type="text" placeholder="Add details about the issue">
+                <div class="form-text" id="category-detail-help">Add information that can help reviewers understand the issue.</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="severity">Severity <span class="required-mark">*</span></label>
+                <select class="form-select" id="severity" name="severity" required>
+                  <option value="" selected disabled>Select the severity level</option>
+                  <option value="Low">Low - Minor inconvenience</option>
+                  <option value="Moderate">Moderate - Affects commuter convenience</option>
+                  <option value="High">High - May affect commuter safety</option>
+                  <option value="Urgent">Urgent - Immediate safety concern</option>
+                </select>
+                <div class="invalid-feedback">Please select the issue severity.</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="location">Exact location of the issue <span class="required-mark">*</span></label>
+                <input class="form-control" id="location" name="location" type="text" placeholder="e.g. Bus stop along Taft Avenue, near Vito Cruz" required>
+                <div class="form-text">Include the street, route, stop name, nearby landmark, or direction where the issue can be found.</div>
+                <div class="invalid-feedback">Please provide the location so the issue can be identified.</div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="date-observed">Date observed <span class="required-mark">*</span></label>
+                  <input class="form-control" id="date-observed" name="date-observed" type="date" required>
+                  <div class="invalid-feedback">Choose today or an earlier date.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="time-observed">Time observed <span class="required-mark">*</span></label>
+                  <input class="form-control" id="time-observed" name="time-observed" type="time" required>
+                  <div class="invalid-feedback">Please enter the approximate time.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="incident-description">Description <span class="required-mark">*</span></label>
+                <textarea class="form-control" id="incident-description" name="description" rows="5" minlength="10" maxlength="500" placeholder="Describe what you noticed, how it affects commuters, and any other useful details (10–500 characters)." required></textarea>
+                <div class="d-flex justify-content-between gap-2">
+                  <div class="form-text">Provide at least 10 characters and no more than 500.</div>
+                  <div class="form-text character-count" id="character-count" aria-live="polite">0 / 500</div>
+                </div>
+                <div class="invalid-feedback">Please enter a description between 10 and 500 characters.</div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label" for="report-photo">Photo evidence <span class="optional-label">Optional</span></label>
+                <input class="form-control" id="report-photo" name="photo" type="file" accept="image/jpeg,image/png">
+                <div class="form-text">Upload a JPG or PNG photo, maximum file size 5 MB. Avoid including identifiable faces when possible.</div>
+                <div class="invalid-feedback">Please choose a JPG or PNG image that is 5 MB or smaller.</div>
+                <div class="file-preview small mt-2" id="file-preview" aria-live="polite"></div>
+              </div>
+
+              <div class="privacy-note mb-4">
+                <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+              </div>
+
+              <div class="form-check mb-4">
+                <input class="form-check-input" id="privacy-consent" name="privacy-consent" type="checkbox" required>
+                <label class="form-check-label" for="privacy-consent">I confirm that the information provided is accurate to the best of my knowledge. <span class="required-mark">*</span></label>
+                <div class="invalid-feedback">Please confirm before submitting your report.</div>
+              </div>
+
+              <button class="btn btn-primary report-submit w-100" type="submit">
+                Submit report <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+              </button>
+              <p class="report-form-status small mt-3 mb-0" id="report-form-status" role="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer py-4">
+      <div class="container footer-inner d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+        <div><strong>MANHATTAN CITIZEN REPORTING</strong><p class="mb-0">Speak Up. Report Issues. Improve Every Journey.</p></div>
+        <div class="footer-links"><a href="index.html#home">Home</a><a href="report.html">Report an Issue</a><a href="track.html">Track Report</a></div>
+
+      </div>
+    </footer>
+  </body>
+</html>
