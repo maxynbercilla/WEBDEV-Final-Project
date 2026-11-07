@@ -93,7 +93,7 @@ reportForm.addEventListener("submit", (event) => {
   reportForm.classList.add("was-validated");
   if (!reportForm.reportValidity()) return;
 
-  const reportNumber = `MCR-${todayValue.replace(/-/g, "")}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+const reportNumber = `MH-${todayValue.replace(/-/g, "")}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
   const report = {
     reportNumber,
     status: "pending",
